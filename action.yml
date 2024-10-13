@@ -14,8 +14,10 @@ runs:
       with:
         node-version: 'latest'
     - name: Install jampack npm package
+      shell: bash
       run: npm install -D @divriots/jampack
     - name: Genarate responsive images
+      shell: bash
       run: |
         npm exec jampack ./_site
         rm -rf ./_site/_jampack
