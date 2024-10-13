@@ -92,3 +92,19 @@ jobs:
         id: deployment
         uses: actions/deploy-pages@v4
 ```
+
+### jampack tool
+You can learn more about the jampack tool [here](https://jampack.divriots.com/configuration/)
+
+Below an example of the jampack config file to be put on the Jekyll root project and name it `jampack.config.mjs`
+```js
+export default {
+    image: {
+        srcset_min_width: 100,
+        srcset_step: 100,
+        compress: true,
+        rcset_max_width: 1280,  // Max width used in srcset
+        max_width: 720, 
+    },
+};
+```
