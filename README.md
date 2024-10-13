@@ -74,7 +74,7 @@ jobs:
           JEKYLL_ENV: production
 
       - name: Genarate Responsive Images
-        uses: jbinfo/jekyll-responsive-images@latest
+        uses: jbinfo/jekyll-responsive-images@v0.1.0
 
       - name: Upload artifact
         # Automatically uploads an artifact from the './_site' directory by default
