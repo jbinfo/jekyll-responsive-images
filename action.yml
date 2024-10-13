@@ -1,0 +1,21 @@
+name: "Jekyll Responsive Images"
+description: "A composite action that generate responsive images for your Jekyll website using the jampack tool which generate images and replace html img tag with the appropriate one, check jampack docs to know how it works. This action to be put on the jekyll.yml workflow file after the build step and before upload artifact step."
+author: "Lhassan Baazzi <baazzilhassan@gmail.com>"
+inputs:
+  path:
+    description: "Path of the directory containing the static assets."
+    required: true
+    default: "_site/"
+runs:
+  using: composite
+  steps:
+    - name: Install latest NodeJS version
+      uses: actions/setup-node@v4
+      with:
+        node-version: 'latest'
+    - name: Install jampack npm package
+      run: npm install -D @divriots/jampack
+    - name: Genarate responsive images
+      run: |
+        npm exec jampack ./_site
+        rm -rf ./_site/_jampack
